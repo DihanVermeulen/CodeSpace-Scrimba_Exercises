@@ -1,0 +1,13 @@
+.header {
+  text-align: center;
+}
+
+.header__heading {
+  font-size: 40px;
+  color: #000000;
+}
+
+.header__description {
+  font-size: 24px;
+  color: #8b8b8b;
+}
