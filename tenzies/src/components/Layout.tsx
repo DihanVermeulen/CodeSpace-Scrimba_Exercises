@@ -8,9 +8,11 @@ const Layout = (props: Props) => {
   const { children } = props;
   return (
     <>
-      <header>
-        <h1>Tenzies</h1>
-        <p>Roll until all dice are the same. Click a dice to freeze it.</p>
+      <header className="header">
+        <h1 className="header__heading">Tenzies</h1>
+        <p className="header__description">
+          Roll until all dice are the same. Click a dice to freeze it.
+        </p>
       </header>
       <section>{children}</section>
     </>
