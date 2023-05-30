@@ -1,4 +1,4 @@
-type DieProps = {
+export type DieProps = {
   isHolding: boolean;
   value: number;
   id: string;
