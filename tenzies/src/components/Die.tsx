@@ -31,6 +31,7 @@ const Die = (props: DieProps) => {
     for (const dotPosition of DOT_POSITION_MATRIX[value]) {
       dots.push(
         <Dot
+          key={dotPosition}
           style={{
             top: `${dotPosition[0]}%`,
             left: `${dotPosition[1]}%`,
