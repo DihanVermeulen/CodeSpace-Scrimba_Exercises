@@ -13,7 +13,15 @@ function App() {
             justifyContent: "center",
           }}
         >
-          <button className="roll__button">Roll</button>
+          {!tenzies ? (
+            <button onClick={handleRollDice} className="roll__button">
+              Roll
+            </button>
+          ) : (
+            <button onClick={resetGame} className="roll__button">
+              Reset
+            </button>
+          )}
         </div>
       </Layout>
     </>
