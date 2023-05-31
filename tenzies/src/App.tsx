@@ -22,6 +22,14 @@ function App() {
   const [tenzies, setTenzies] = useState<boolean>(false);
   const { width, height } = useWindowSize();
 
+  useEffect(() => {
+    const allHeld = dice.every((die) => die.isHolding);
+    const firstValue = dice[0].value;
+    const allSameValue = dice.every((die) => die.value === firstValue);
+    if (allHeld && allSameValue) {
+      setTenzies(true);
+    }
+  }, [dice]);
   return (
     <>
       <Layout>
