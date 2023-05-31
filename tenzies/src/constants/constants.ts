@@ -1,4 +1,4 @@
-export const dotPositionMatrix = {
+export const DOT_POSITION_MATRIX: any = {
   1: [[50, 50]],
   2: [
     [20, 20],
@@ -22,7 +22,7 @@ export const dotPositionMatrix = {
     [80, 20],
     [80, 80],
   ],
-  5: [
+  6: [
     [20, 20],
     [20, 80],
     [50, 20],
