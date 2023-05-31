@@ -1,5 +1,10 @@
 import "./App.css";
+import Die from "./components/Die";
 import Layout from "./components/Layout";
+import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use";
 
 function App() {
   const generateDie = () => {
