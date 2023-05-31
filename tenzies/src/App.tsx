@@ -20,6 +20,8 @@ function App() {
 
   const [dice, setDice] = useState(createNewDice());
   const [tenzies, setTenzies] = useState<boolean>(false);
+  const { width, height } = useWindowSize();
+
   return (
     <>
       <Layout>
