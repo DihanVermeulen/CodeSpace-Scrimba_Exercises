@@ -9,6 +9,16 @@ function App() {
       id: uuidv4(),
     };
   };
+
+  const createNewDice = () => {
+    const newDice = [];
+    for (let i = 0; i < 10; i++) {
+      newDice.push(generateDie());
+    }
+    return newDice;
+  };
+
+  const [dice, setDice] = useState(createNewDice());
   return (
     <>
       <Layout>
