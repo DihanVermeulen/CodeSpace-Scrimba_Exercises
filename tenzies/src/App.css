@@ -13,8 +13,11 @@
 }
 
 .main__section {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
   background-color: #ffffff;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .roll__button {
