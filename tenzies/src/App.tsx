@@ -69,6 +69,7 @@ function App() {
 
   return (
     <>
+      {tenzies && <Confetti width={width} height={height} />}
       <Layout>
         <main className="main__section">
           {dice.map((die) => (
