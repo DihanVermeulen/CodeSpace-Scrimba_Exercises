@@ -30,6 +30,38 @@ function App() {
       setTenzies(true);
     }
   }, [dice]);
+
+  const rollDice = () => {
+    setDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.isHolding ? die : generateDie();
+      })
+    );
+  };
+
+  const holdDice = (id: string) => {
+    setDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.id === id ? { ...die, isHolding: !die.isHolding } : die;
+      })
+    );
+  };
+
+  const handleRollDice = () => {
+    const interval = setInterval(() => {
+      rollDice();
+    }, 50);
+
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 1000);
+  };
+
+  const resetGame = () => {
+    setTenzies(false);
+    setDice(createNewDice());
+  };
+
   return (
     <>
       <Layout>
