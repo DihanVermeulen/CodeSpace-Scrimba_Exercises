@@ -2,6 +2,13 @@ import "./App.css";
 import Layout from "./components/Layout";
 
 function App() {
+  const generateDie = () => {
+    return {
+      value: Math.floor(Math.random() * 6) + 1,
+      isHolding: false,
+      id: uuidv4(),
+    };
+  };
   return (
     <>
       <Layout>
