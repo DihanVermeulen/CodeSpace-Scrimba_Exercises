@@ -5,7 +5,17 @@ function App() {
   return (
     <>
       <Layout>
-        <main className="main__section"></main>
+        <main className="main__section">
+          {dice.map((die) => (
+            <Die
+              key={die.id}
+              value={die.value}
+              id={die.id}
+              isHolding={die.isHolding}
+              holdDice={() => holdDice(die.id)}
+            />
+          ))}
+        </main>
         <div className="space" />
         <div
           style={{
