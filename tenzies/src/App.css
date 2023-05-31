@@ -43,3 +43,31 @@
 .space {
   margin: 3rem;
 }
+
+@media screen and (min-width: 400px) {
+  .main__section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .main__section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .main__section {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main__section {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
