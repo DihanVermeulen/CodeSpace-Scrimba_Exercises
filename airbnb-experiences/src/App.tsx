@@ -1,7 +1,14 @@
 import "./App.css";
+import { NavigationLayout } from "./components/layout/NavigationLayout";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <NavigationLayout>
+        
+      </NavigationLayout>
+    </>
+  );
 }
 
 export default App;
