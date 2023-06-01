@@ -24,7 +24,7 @@ const Dot = styled.div`
 `;
 
 const Die = (props: DieProps) => {
-  const { isHolding, value, id, holdDice } = props;
+  const { isHolding, value, holdDice } = props;
 
   const createDots = () => {
     const dots = [];
