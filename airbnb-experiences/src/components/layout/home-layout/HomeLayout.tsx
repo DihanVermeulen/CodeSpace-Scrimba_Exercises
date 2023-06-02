@@ -1,25 +1,9 @@
-import styled from "styled-components";
 import heroSectionImageSmall from "../../assets/hero-section-small.png";
 import heroSectionImageLarge from "../../assets/hero-section-large.png";
-import { CardRow } from "../CardRow";
-import data from "../../data";
-import * as Styled from "../../styles/utils.styled-components";
-
-const Wrapper = styled.section`
-  overflow-x: hidden;
-  width: 100%;
-`;
-
-const CenterContentSection = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-`;
-
-const Space = styled.div`
-  margin-bottom: 1rem;
-`;
+import { CardRow } from "../../CardRow";
+import data from "../../../data";
+import * as StyledUtils from "../../../styles/utils.styled-components";
+import * as Styled from "./home-layout.styled-components";
 
 const styles = {
   centerContent: {
@@ -39,8 +23,8 @@ const styles = {
 
 export const HomeLayout = () => {
   return (
-    <Wrapper>
-      <CenterContentSection>
+    <Styled.Wrapper>
+      <Styled.CenterContentSection>
         <picture style={styles.centerContent}>
           <source media="(min-width:650px)" srcSet={heroSectionImageLarge} />
           <img
@@ -49,8 +33,8 @@ export const HomeLayout = () => {
             style={{ width: "90%" }}
           />
         </picture>
-      </CenterContentSection>
-      <Space />
+      </Styled.CenterContentSection>
+      <StyledUtils.Space $value={1} />
       <section style={{ padding: "2rem" }}>
         <h1 style={styles.heading}>Online Experiences</h1>
         <p style={styles.description}>
@@ -58,8 +42,8 @@ export const HomeLayout = () => {
           without leaving home.
         </p>
       </section>
-      <Styled.Space $value={1} />
+      <StyledUtils.Space $value={1} />
       <CardRow data={data} />
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };
