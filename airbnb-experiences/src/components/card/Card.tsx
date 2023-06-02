@@ -2,7 +2,7 @@ import styled from "styled-components";
 import starImg from "../assets/images/star.png";
 import Chip from "@mui/material/Chip";
 import "../App.css";
-import * as Styled from "../../styles/utils.styled-components";
+import * as StyledUtils from "../../styles/utils.styled-components";
 
 type Props = {
   id: number | string;
@@ -83,7 +83,7 @@ export const Card = (props: Props) => {
           )
         )}
       </CardTop>
-      <Styled.Space $value={0.6} />
+      <StyledUtils.Space $value={0.6} />
       <CardBottom>
         <CardBottomBanner>
           <img src={starImg} width={20} height={20} />
@@ -91,7 +91,7 @@ export const Card = (props: Props) => {
           <p>({reviewCount})</p>
           <p>{location}</p>
         </CardBottomBanner>
-        <Styled.Space $value={0.6} />
+        <StyledUtils.Space $value={0.6} />
         <Title>{title}</Title>
         <p>
           <b>From ${price}</b> / person
