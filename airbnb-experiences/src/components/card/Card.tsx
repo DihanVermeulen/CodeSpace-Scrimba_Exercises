@@ -1,6 +1,6 @@
-import starImg from "../assets/images/star.png";
+import starImg from "../../assets/images/star.png";
 import Chip from "@mui/material/Chip";
-import "../App.css";
+import "../../App.css";
 import * as StyledUtils from "../../styles/utils.styled-components";
 import * as Styled from "./card.styled-components";
 
