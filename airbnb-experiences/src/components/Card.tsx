@@ -2,6 +2,7 @@ import styled from "styled-components";
 import starImg from "../assets/images/star.png";
 import Chip from "@mui/material/Chip";
 import "../App.css";
+import * as Styled from "../styles/utils.styled-components";
 
 type Props = {
   id: number | string;
@@ -44,10 +45,6 @@ const Title = styled.h3`
   color: #222222;
 `;
 
-const Space = styled.div<{ $value: number }>`
-  margin-bottom: ${(props) => props.$value}rem;
-`;
-
 export const Card = (props: Props) => {
   const {
     title,
@@ -86,7 +83,7 @@ export const Card = (props: Props) => {
           )
         )}
       </CardTop>
-      <Space $value={0.6} />
+      <Styled.Space $value={0.6} />
       <CardBottom>
         <CardBottomBanner>
           <img src={starImg} width={20} height={20} />
@@ -94,7 +91,7 @@ export const Card = (props: Props) => {
           <p>({reviewCount})</p>
           <p>{location}</p>
         </CardBottomBanner>
-        <Space $value={0.6} />
+        <Styled.Space $value={0.6} />
         <Title>{title}</Title>
         <p>
           <b>From ${price}</b> / person
