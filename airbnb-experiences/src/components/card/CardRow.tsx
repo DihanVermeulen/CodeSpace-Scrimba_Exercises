@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import * as Styled from "./card-row.styled-components";
 import { Card } from "./Card";
 
 type Data = {
@@ -19,21 +19,13 @@ type Props = {
   data: Data[];
 };
 
-const Wrapper = styled.section`
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  width: 100%;
-  padding: 1rem;
-`;
-
 export const CardRow = (props: Props) => {
   const { data } = props;
   return (
-    <Wrapper>
+    <Styled.Wrapper>
       {data?.map((item) => (
         <Card key={item.id} {...item} />
       ))}
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };

@@ -1,8 +1,8 @@
-import styled from "styled-components";
 import starImg from "../assets/images/star.png";
 import Chip from "@mui/material/Chip";
 import "../App.css";
 import * as StyledUtils from "../../styles/utils.styled-components";
+import * as Styled from "./card.styled-components";
 
 type Props = {
   id: number | string;
@@ -18,33 +18,6 @@ type Props = {
   openSpots: number;
 };
 
-const Wrapper = styled.article`
-  cursor: pointer;
-  border-radius: 10px;
-`;
-
-const CardTop = styled.section`
-  width: 100%;
-  height: 18rem;
-  width: 16rem;
-  position: relative;
-`;
-
-const CardBottomBanner = styled.article`
-  display: flex;
-  gap: 5px;
-`;
-
-const CardBottom = styled.section`
-  font-size: 12px;
-  padding: 0.3rem;
-`;
-
-const Title = styled.h3`
-  font-weight: 300;
-  color: #222222;
-`;
-
 export const Card = (props: Props) => {
   const {
     title,
@@ -56,8 +29,8 @@ export const Card = (props: Props) => {
   } = props;
 
   return (
-    <Wrapper>
-      <CardTop>
+    <Styled.Wrapper>
+      <Styled.CardTop>
         <img src={`src/assets/images/${coverImg}`} className="card__img"></img>
         {openSpots === 0 ? (
           <Chip
@@ -82,21 +55,21 @@ export const Card = (props: Props) => {
             />
           )
         )}
-      </CardTop>
+      </Styled.CardTop>
       <StyledUtils.Space $value={0.6} />
-      <CardBottom>
-        <CardBottomBanner>
+      <Styled.CardBottom>
+        <Styled.CardBottomBanner>
           <img src={starImg} width={20} height={20} />
           <p>{rating}</p>
           <p>({reviewCount})</p>
           <p>{location}</p>
-        </CardBottomBanner>
+        </Styled.CardBottomBanner>
         <StyledUtils.Space $value={0.6} />
-        <Title>{title}</Title>
+        <Styled.Title>{title}</Styled.Title>
         <p>
           <b>From ${price}</b> / person
         </p>
-      </CardBottom>
-    </Wrapper>
+      </Styled.CardBottom>
+    </Styled.Wrapper>
   );
 };
