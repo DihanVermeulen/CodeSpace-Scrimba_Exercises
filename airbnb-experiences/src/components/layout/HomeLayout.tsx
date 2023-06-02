@@ -1,15 +1,20 @@
 import styled from "styled-components";
 import heroSectionImageSmall from "../../assets/hero-section-small.png";
 import heroSectionImageLarge from "../../assets/hero-section-large.png";
+import { CardRow } from "../CardRow";
+import data from "../../data";
+import * as Styled from "../../styles/utils.styled-components";
 
 const Wrapper = styled.section`
-  padding: 2rem;
+  overflow-x: hidden;
+  width: 100%;
 `;
 
 const CenterContentSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 `;
 
 const Space = styled.div`
@@ -46,11 +51,15 @@ export const HomeLayout = () => {
         </picture>
       </CenterContentSection>
       <Space />
-      <h1 style={styles.heading}>Online Experiences</h1>
-      <p style={styles.description}>
-        Join unique interactive activities led by one-of-a-kind hosts—all
-        without leaving home.
-      </p>
+      <section style={{ padding: "2rem" }}>
+        <h1 style={styles.heading}>Online Experiences</h1>
+        <p style={styles.description}>
+          Join unique interactive activities led by one-of-a-kind hosts—all
+          without leaving home.
+        </p>
+      </section>
+      <Styled.Space $value={1} />
+      <CardRow data={data} />
     </Wrapper>
   );
 };
