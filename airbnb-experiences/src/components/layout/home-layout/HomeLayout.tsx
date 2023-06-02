@@ -1,6 +1,6 @@
 import heroSectionImageSmall from "../../assets/hero-section-small.png";
 import heroSectionImageLarge from "../../assets/hero-section-large.png";
-import { CardRow } from "../../CardRow";
+import { CardRow } from "../../card/CardRow";
 import data from "../../../data";
 import * as StyledUtils from "../../../styles/utils.styled-components";
 import * as Styled from "./home-layout.styled-components";
