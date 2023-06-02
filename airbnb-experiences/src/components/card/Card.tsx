@@ -2,7 +2,7 @@ import styled from "styled-components";
 import starImg from "../assets/images/star.png";
 import Chip from "@mui/material/Chip";
 import "../App.css";
-import * as Styled from "../styles/utils.styled-components";
+import * as Styled from "../../styles/utils.styled-components";
 
 type Props = {
   id: number | string;
