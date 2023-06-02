@@ -1,6 +1,6 @@
 import "./App.css";
-import { HomeLayout } from "./components/layout/HomeLayout";
-import { NavigationLayout } from "./components/layout/NavigationLayout";
+import { HomeLayout } from "./components/layout/home-layout/HomeLayout";
+import { NavigationLayout } from "./components/layout/navigation-layout/NavigationLayout";
 
 function App() {
   return (
