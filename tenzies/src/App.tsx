@@ -5,8 +5,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import { Dice } from "./@types/dice";
 
 function App() {
+  const [dice, setDice] = useState<Dice[] | null>(null);
+  const [tenzies, setTenzies] = useState<boolean>(false);
+  const { width, height } = useWindowSize();
+
   const generateDie = () => {
     return {
       value: Math.floor(Math.random() * 6) + 1,
@@ -23,32 +28,40 @@ function App() {
     return newDice;
   };
 
-  const [dice, setDice] = useState(createNewDice());
-  const [tenzies, setTenzies] = useState<boolean>(false);
-  const { width, height } = useWindowSize();
+  useEffect(() => {
+    if (!dice) {
+      setDice(createNewDice());
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const allHeld = dice.every((die) => die.isHolding);
-    const firstValue = dice[0].value;
-    const allSameValue = dice.every((die) => die.value === firstValue);
-    if (allHeld && allSameValue) {
-      setTenzies(true);
+    if (dice) {
+      const allHeld = dice.every((die) => die.isHolding);
+      const firstValue = dice[0].value;
+      const allSameValue = dice.every((die) => die.value === firstValue);
+      if (allHeld && allSameValue) {
+        setTenzies(true);
+      }
     }
   }, [dice]);
 
   const rollDice = () => {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.isHolding ? die : generateDie();
-      })
+    setDice(
+      (oldDice) =>
+        oldDice &&
+        oldDice.map((die) => {
+          return die.isHolding ? die : generateDie();
+        })
     );
   };
 
   const holdDice = (id: string) => {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.id === id ? { ...die, isHolding: !die.isHolding } : die;
-      })
+    setDice(
+      (oldDice) =>
+        oldDice &&
+        oldDice.map((die) => {
+          return die.id === id ? { ...die, isHolding: !die.isHolding } : die;
+        })
     );
   };
 
@@ -72,15 +85,16 @@ function App() {
       {tenzies && <Confetti width={width} height={height} />}
       <Layout>
         <main className="main__section">
-          {dice.map((die) => (
-            <Die
-              key={die.id}
-              value={die.value}
-              id={die.id}
-              isHolding={die.isHolding}
-              holdDice={() => holdDice(die.id)}
-            />
-          ))}
+          {dice &&
+            dice.map((die) => (
+              <Die
+                key={die.id}
+                value={die.value}
+                id={die.id}
+                isHolding={die.isHolding}
+                holdDice={() => holdDice(die.id)}
+              />
+            ))}
         </main>
         <div className="space" />
         <div
@@ -90,11 +104,11 @@ function App() {
           }}
         >
           {!tenzies ? (
-            <button onClick={handleRollDice} className="roll__button">
+            <button onClick={handleRollDice} className="primary_button">
               Roll
             </button>
           ) : (
-            <button onClick={resetGame} className="roll__button">
+            <button onClick={resetGame} className="primary_button">
               Reset
             </button>
           )}
