@@ -1,0 +1,19 @@
+.primary_button {
+  background-color: #ffffff;
+  color: var(--accent-colour);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 40px;
+  outline: 0px;
+  border: 0px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.primary_button:hover {
+  box-shadow: 0 0 5px 5px var(--accent-colour);
+}
+
+.primary_button:active {
+  box-shadow: inset 0 0 5px 5px var(--accent-colour);
+}
