@@ -45,18 +45,22 @@ function App() {
   }, [dice]);
 
   const rollDice = () => {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.isHolding ? die : generateDie();
-      })
+    setDice(
+      (oldDice) =>
+        oldDice &&
+        oldDice.map((die) => {
+          return die.isHolding ? die : generateDie();
+        })
     );
   };
 
   const holdDice = (id: string) => {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.id === id ? { ...die, isHolding: !die.isHolding } : die;
-      })
+    setDice(
+      (oldDice) =>
+        oldDice &&
+        oldDice.map((die) => {
+          return die.id === id ? { ...die, isHolding: !die.isHolding } : die;
+        })
     );
   };
 
@@ -80,15 +84,16 @@ function App() {
       {tenzies && <Confetti width={width} height={height} />}
       <Layout>
         <main className="main__section">
-          {dice.map((die) => (
-            <Die
-              key={die.id}
-              value={die.value}
-              id={die.id}
-              isHolding={die.isHolding}
-              holdDice={() => holdDice(die.id)}
-            />
-          ))}
+          {dice &&
+            dice.map((die) => (
+              <Die
+                key={die.id}
+                value={die.value}
+                id={die.id}
+                isHolding={die.isHolding}
+                holdDice={() => holdDice(die.id)}
+              />
+            ))}
         </main>
         <div className="space" />
         <div
