@@ -104,11 +104,11 @@ function App() {
           }}
         >
           {!tenzies ? (
-            <button onClick={handleRollDice} className="roll__button">
+            <button onClick={handleRollDice} className="primary_button">
               Roll
             </button>
           ) : (
-            <button onClick={resetGame} className="roll__button">
+            <button onClick={resetGame} className="primary_button">
               Reset
             </button>
           )}
