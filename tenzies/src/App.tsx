@@ -7,6 +7,10 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 
 function App() {
+  const [dice, setDice] = useState<Dice[] | null>(null);
+  const [tenzies, setTenzies] = useState<boolean>(false);
+  const { width, height } = useWindowSize();
+
   const generateDie = () => {
     return {
       value: Math.floor(Math.random() * 6) + 1,
@@ -23,9 +27,6 @@ function App() {
     return newDice;
   };
 
-  const [dice, setDice] = useState(createNewDice());
-  const [tenzies, setTenzies] = useState<boolean>(false);
-  const { width, height } = useWindowSize();
 
   useEffect(() => {
     const allHeld = dice.every((die) => die.isHolding);
