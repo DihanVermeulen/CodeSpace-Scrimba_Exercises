@@ -34,11 +34,13 @@ function App() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const allHeld = dice.every((die) => die.isHolding);
-    const firstValue = dice[0].value;
-    const allSameValue = dice.every((die) => die.value === firstValue);
-    if (allHeld && allSameValue) {
-      setTenzies(true);
+    if (dice) {
+      const allHeld = dice.every((die) => die.isHolding);
+      const firstValue = dice[0].value;
+      const allSameValue = dice.every((die) => die.value === firstValue);
+      if (allHeld && allSameValue) {
+        setTenzies(true);
+      }
     }
   }, [dice]);
 
