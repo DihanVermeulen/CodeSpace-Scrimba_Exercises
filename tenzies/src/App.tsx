@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import { Dice } from "./@types/dice";
 
 function App() {
   const [dice, setDice] = useState<Dice[] | null>(null);
