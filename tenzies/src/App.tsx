@@ -27,6 +27,11 @@ function App() {
     return newDice;
   };
 
+  useEffect(() => {
+    if (!dice) {
+      setDice(createNewDice());
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const allHeld = dice.every((die) => die.isHolding);
